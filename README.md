@@ -50,19 +50,25 @@ Override OS or architecture: `make build GOOS=linux GOARCH=arm64`.
 
 ### Manually
 
-```sh
+```bash
 go build -o redactenv redactenv.go
 ```
 
 Cross-compile examples:
 
-```sh
+```bash
 GOOS=linux   GOARCH=amd64  go build -o redactenv_linux   redactenv.go
 GOOS=darwin  GOARCH=arm64  go build -o redactenv_mac     redactenv.go
 GOOS=windows GOARCH=amd64  go build -o redactenv.exe     redactenv.go
 ```
 
+## Installation
 
+Move the resulting executable to your preferred directory. For example:
+
+```bash
+sudo mv build/redactenv /usr/local/bin/
+```
 
 ## Architecture
 
