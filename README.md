@@ -1,10 +1,10 @@
 # redactenv
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Go dev](https://pkg.go.dev/badge/github.com/rgglez/go-storage/v5)](https://pkg.go.dev/gitub.com/rgglez/bash-env-redact/v5)
-[![Go Report Card](https://goreportcard.com/badge/github.com/rgglez/bash-env-redact/v5)](https://goreportcard.com/report/github.com/rgglez/bash-env-redact/v5)
-![GitHub stars](https://img.shields.io/github/stars/rgglez/bash-env-redact?style=social)
-![GitHub forks](https://img.shields.io/github/forks/rgglez/bash-env-redact?style=social)
+[![Go dev](https://pkg.go.dev/badge/github.com/rgglez/go-storage/v5)](https://pkg.go.dev/gitub.com/rgglez/go-bash-env-redact/v5)
+[![Go Report Card](https://goreportcard.com/badge/github.com/rgglez/bash-env-redact/v5)](https://goreportcard.com/report/github.com/rgglez/go-bash-env-redact/v5)
+![GitHub stars](https://img.shields.io/github/stars/rgglez/go-bash-env-redact?style=social)
+![GitHub forks](https://img.shields.io/github/forks/rgglez/go-bash-env-redact?style=social)
 
 *redactenv* reads a bash/`.env`-style file where each line is either:
 
