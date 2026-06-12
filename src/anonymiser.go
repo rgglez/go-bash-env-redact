@@ -32,6 +32,8 @@ type cacheKey struct {
 	raw       string
 }
 
+// -----------------------------------------------------------------------------
+
 // Anonymiser replaces values with type-preserving placeholders.
 type Anonymiser struct {
 	strict         bool
@@ -39,6 +41,8 @@ type Anonymiser struct {
 	cache          map[cacheKey]string
 	counters       map[string]int // keyed by a human-readable category name
 }
+
+// -----------------------------------------------------------------------------
 
 // newAnonymiser allocates a ready-to-use Anonymiser.
 func newAnonymiser(strict, keepPrivateIPs bool) *Anonymiser {
@@ -50,11 +54,15 @@ func newAnonymiser(strict, keepPrivateIPs bool) *Anonymiser {
 	}
 }
 
+// -----------------------------------------------------------------------------
+
 // next increments the counter for category cat and returns the new value.
 func (a *Anonymiser) next(cat string) int {
 	a.counters[cat]++
 	return a.counters[cat]
 }
+
+// -----------------------------------------------------------------------------
 
 // totalRedacted returns the sum of all counter values.
 func (a *Anonymiser) totalRedacted() int {
@@ -65,10 +73,14 @@ func (a *Anonymiser) totalRedacted() int {
 	return total
 }
 
+// -----------------------------------------------------------------------------
+
 // anonEmail returns a fake but structurally valid email address.
 func (a *Anonymiser) anonEmail() string {
 	return fmt.Sprintf("user%d@example.com", a.next("email"))
 }
+
+// -----------------------------------------------------------------------------
 
 // anonIP returns an address from a documentation-reserved range so it
 // cannot be confused with real infrastructure.
@@ -89,6 +101,8 @@ func (a *Anonymiser) anonIP(original string) string {
 	// 2001:db8::/32 — documentation prefix, RFC 3849.
 	return fmt.Sprintf("2001:db8::%x", n)
 }
+
+// -----------------------------------------------------------------------------
 
 // anonURL returns a URL that keeps the scheme and port but replaces the host,
 // path, credentials, query string and fragment.
@@ -123,12 +137,16 @@ func (a *Anonymiser) anonURL(original string) string {
 	return out.String()
 }
 
+// -----------------------------------------------------------------------------
+
 // anonPath returns a generic path that preserves the file extension.
 func (a *Anonymiser) anonPath(original string) string {
 	n := a.next("path")
 	ext := filepath.Ext(original) // returns "" when there is no extension
 	return fmt.Sprintf("/redacted/path-%d%s", n, ext)
 }
+
+// -----------------------------------------------------------------------------
 
 // placeholder returns the replacement string for the given (key, type, value)
 // triple, generating and caching a new one if necessary.
@@ -166,6 +184,8 @@ func (a *Anonymiser) placeholder(sensitive bool, vt valueType, raw string) strin
 	return result
 }
 
+// -----------------------------------------------------------------------------
+
 // Redact decides whether value should be replaced and, if so, returns the
 // placeholder; otherwise it returns the original value unchanged.
 // quoteChar is the quoting style that surrounded the value in the source
@@ -200,6 +220,8 @@ func (a *Anonymiser) Redact(key, quoteChar, value string) (string, string) {
 	}
 	return outQuote, repl
 }
+
+// -----------------------------------------------------------------------------
 
 // needsQuoting returns true when v contains characters that would be
 // interpreted by the shell if left unquoted.

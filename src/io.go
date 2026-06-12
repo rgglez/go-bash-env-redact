@@ -44,6 +44,8 @@ func readLines(path string) ([]string, error) {
 	return lines, scanner.Err()
 }
 
+// -----------------------------------------------------------------------------
+
 // writeLines writes lines to the file at path (one per line, LF-terminated),
 // or to stdout if path is "-".
 func writeLines(path string, lines []string) error {
@@ -66,6 +68,8 @@ func writeLines(path string, lines []string) error {
 	}
 	return bw.Flush()
 }
+
+// -----------------------------------------------------------------------------
 
 // splitCSV splits a comma-separated string into a set, ignoring empty tokens.
 func splitCSV(s string) map[string]bool {

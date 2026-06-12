@@ -24,6 +24,8 @@ import (
 // valueType is a string tag returned by classifyValue.
 type valueType string
 
+// -----------------------------------------------------------------------------
+
 const (
 	typeEmpty valueType = "empty"
 	typeBool  valueType = "bool"
@@ -35,6 +37,8 @@ const (
 	typePath  valueType = "path"
 	typeText  valueType = "text"
 )
+
+// -----------------------------------------------------------------------------
 
 // classifyValue returns the valueType that best describes v.
 func classifyValue(v string) valueType {
@@ -68,6 +72,8 @@ func classifyValue(v string) valueType {
 	}
 	return typeText
 }
+
+// -----------------------------------------------------------------------------
 
 // isSensitiveKey returns true when the variable name contains any of the
 // substrings in sensitivePatterns (case-insensitive comparison).

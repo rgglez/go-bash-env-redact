@@ -70,6 +70,8 @@ func splitRHS(rhs string) (quoteChar, value, tail string) {
 	}
 }
 
+// -----------------------------------------------------------------------------
+
 // processLine anonymises a single line and returns the result.
 // Lines that are comments, blank, or not assignments are returned unchanged
 // (subject to the stripComments flag).

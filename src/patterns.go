@@ -29,6 +29,8 @@ var sensitivePatterns = []string{
 	"smtp", "mail_pass", "aws", "gcp", "azure", "sentry",
 }
 
+// -----------------------------------------------------------------------------
+
 // safeTextValues lists lowercase plain-text values that carry no personal
 // information and are therefore left as-is in non-strict mode.
 var safeTextValues = map[string]bool{
@@ -41,6 +43,8 @@ var safeTextValues = map[string]bool{
 	"utf8": true, "json": true, "text": true, "http": true,
 	"https": true, "tcp": true, "udp": true, "localhost": true,
 }
+
+// -----------------------------------------------------------------------------
 
 // boolLiterals lists the values treated as boolean in non-strict mode.
 var boolLiterals = map[string]bool{
