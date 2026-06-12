@@ -1,6 +1,6 @@
 // main.go
 //
-// Copyright (C) 2026 Rodolfo González González
+// # Copyright (C) 2026 Rodolfo González González
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -76,6 +76,7 @@ func main() {
 	}
 
 	// Print a summary to stderr so it does not pollute the redacted output.
+	fmt.Println("")
 	fmt.Fprintf(os.Stderr,
 		"[redactenv] values redacted: %d  (by category: %v)\n",
 		anon.totalRedacted(), anon.counters)
